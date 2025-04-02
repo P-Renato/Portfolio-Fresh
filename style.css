@@ -111,7 +111,12 @@
             -webkit-text-fill-color: transparent;
             animation: gradientAnimation 1s linear infinite;
         }
-      }
+        .exclamation {
+            visibility: hidden; /* Start hidden */
+            display: inline-block;
+            width: 0.5ch; /* Keeps space reserved */
+            transition: box-shadow 0.3s ease-in-out;
+        }
     }
   
     aside p:nth-child(1){
@@ -214,4 +219,5 @@
         border: 5px solid var(--borderColor);
       }
     }
-  }
+    }
+}
