@@ -1,7 +1,5 @@
 
-
-
-const exclamation = document.querySelector<HTMLElement>(".exclamation");
+const exclamation = document.querySelector(".exclamation");
 
 if (exclamation) {
     setInterval(() => {
