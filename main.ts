@@ -1,4 +1,4 @@
-import './style.css'
+
 
 
 const exclamation = document.querySelector(".exclamation") as HTMLElement;
