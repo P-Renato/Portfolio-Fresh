@@ -24,10 +24,7 @@
   justify-content: space-between;
   background: var(--bgColor);
   min-height: 15vh;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+  width: 120%;
   transition: transform 0.3s ease-out;
 
 
@@ -45,13 +42,15 @@
     
     img {
       min-height: 2.5em;
-      max-height: 3.5em;
+      max-height: 8.5em;
+      height: 6em;
       border-radius: 12px 9px 12px 9px;
     }
     p {
       font-family: var(--navheader);
       color: white;
       transition: color 0.3s ease-in-out; 
+      font-size: 3em;
 
       
     
@@ -62,18 +61,17 @@
     }
   }
 
-  .centerNav{
-    min-width: 20%;
-    max-width: 60%;
-    max-height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  .centerNav {
+
+
     a {
       color: white;
       text-decoration: none;
-      font-family: var(--robotText);
+      font-size: 2em;
+      margin: .5em;
+      font-family: var(--paragraph);
     }
+
   }
 
   .logos {
@@ -84,12 +82,12 @@
     margin: 2rem;
     
     svg{
-      min-width: 1.5em;
-      max-width: 2.5em;
+      min-width: 2.5em;
+      max-width: 4.5em;
       padding: .5em;
-      min-height: 1.5em;
-      max-height: 3em;
-
+      min-height: 3.5em;
+      max-height: 5em;
+      margin: 2em;
     }
   }
 }
@@ -97,9 +95,10 @@
 hr {
   background: var(--hrLongColor);
   height: .4em;
-  position: relative;
-  z-index: 1;
-  top: 15vh;
+  border: none;
+  width: 100%;
+  display: block;
+
   
 }
 
@@ -107,13 +106,12 @@ main {
   width: 100%;
   min-height: 50vh;
   max-height: 180vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  gap: 2em;
   background: var(--bgColor);
   margin: 0;
-  position: relative;
-  z-index: 1;
-  top: 15vh;
+
 
   aside {
     display: grid;
@@ -170,10 +168,11 @@ main {
 
   img {
     min-height: 20vh;
-    max-height: 40vh;
+    max-height: 70vh;
     min-width: 30vw;
     max-width: 40vw;
     padding: 3em;
+    height: 100vh;
     
   }
 }
@@ -183,9 +182,6 @@ main {
   width: 100%;
   height: 90vh;
   justify-content: space-around;
-  position: relative;
-  /* z-index: 2001; */
-  top: 15em;
 
   .skillsNav {
     display: flex;
@@ -260,8 +256,7 @@ main {
 }
 .logo:hover {
   filter: drop-shadow(0 0 6em #292786bb);
-  width: 55vw;
-  height: 60vh;
+
 }
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 6em #60f334dc);
@@ -274,19 +269,30 @@ main {
   .smallRef {
       display: flex;
       flex-direction: column;
-
+      width: 120%;
       justify-content: space-between;
       /* background-color: red; */
 
       .myImageHeader {
         display: flex;
         flex-direction: column;
+        margin: 2em;
+
+        p {
+          font-size: 2em;
+        }
+
       }
 
-      .centerNav {
+
+      .centerNav{
+        min-width: 20%;
+        max-width: 60%;
+        max-height: 100%;
         display: flex;
-        width: 80%;
         justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
 
       }
 
@@ -296,8 +302,8 @@ main {
         justify-content: space-evenly;
       }
   }
+
   hr {
-    top: 15em;
     width: 120vw;
   }
 
@@ -307,9 +313,6 @@ main {
     align-items: center;
     width: 120vw;
     height: 100%;
-    top: 14.9em;
-
-
 
     .logo {
       width: 85vw;
@@ -320,26 +323,46 @@ main {
       max-height: 125vh;
       align-self: center;
       
-      
-      /* align-self: auto; */
-      /* transition: none; */
     }
   }
 }
 
 @media (min-width:360px) and (max-width: 759px) {
+  .bigRef {
+    display: grid;
+    grid-template-areas: 
+    "image nav nav"
+    "image logos logos";
 
+    .myImageHeader {
+      grid-area: image;
+    }
+
+    .centerNav {
+      grid-area: nav;
+    }
+
+    .logos {
+      grid-area: logos;
+
+    }
+  }
+
+  .smallRef {
+   display: none;
+  }
 
   hr{
     top: 7em;
+    width: 120%;
   }
 
   main {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 120vw;
     height: 100%;
-    top: 6.9em;
+
 
     .logo {
       width: 60vw;
@@ -378,6 +401,43 @@ main {
 @media (min-width: 760px) {
   .bigRef {
     display: flex;
+
+
+    .centerNav {
+      min-width: 20%;
+      max-width: 60%;
+      max-height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      a {
+        font-size: 3em;
+        font-family: var(--robotText);
+      }
+
+    }
+
+
+    .logos {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+      margin: 2rem;
+
+      a {
+        svg{
+          min-width: 2.5em;
+          max-width: 3.5em;
+          min-height: 3.5em;
+          max-height: 3em;
+
+        }
+
+      }
+      
+      
+  }
   }
   .smallRef {
     display: none;
@@ -387,6 +447,7 @@ main {
 hr {
   top: 7em;
   width: 120vw;
+  display: block;
 }
 
 main {
@@ -397,10 +458,12 @@ main {
   grid-template-columns: 1fr 1fr;
   background: var(--bgColor);
   margin: 0;
-  position: relative;
-  z-index: 1;
-  top: 22vh;
+  /* position: relative; */
+  /* z-index: 1;
+  top: 22vh; */
 }
+
+
 
 .logo {
   min-height: 12em;
@@ -415,8 +478,8 @@ main {
 }
 .logo:hover {
   filter: drop-shadow(0 0 6em #292786bb);
-  width: 55vw;
-  height: 60vh;
+  /* width: 55vw; */
+  height: 120%;
 }
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 6em #60f334dc);
