@@ -262,7 +262,7 @@ main {
   filter: drop-shadow(0 0 6em #60f334dc);
 }
 
-@media (max-width: 359px) {
+@media (max-width: 459px) {
   .bigRef {
       display: none;
   }
@@ -327,7 +327,7 @@ main {
   }
 }
 
-@media (min-width:360px) and (max-width: 759px) {
+@media (min-width:460px) and (max-width: 759px) {
   .bigRef {
     display: grid;
     grid-template-areas: 
