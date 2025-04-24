@@ -1,4 +1,6 @@
 import './style.css';
+
+
 const exclamation = document.querySelector(".exclamation");
 if (exclamation) {
     setInterval(() => {
@@ -6,6 +8,8 @@ if (exclamation) {
             exclamation.style.visibility === "hidden" ? "visible" : "hidden";
     }, 800);
 }
+
+
 const heart = document.querySelector("svg");
 let scaleUp = true;
 setInterval(() => {
@@ -14,8 +18,9 @@ setInterval(() => {
         heart.style.transition = "transform 0.3s ease-in-out";
         scaleUp = !scaleUp;
     }
-}, 600); // beats about once per 1.2 seconds (up & down)
-const birthDate = new Date("1985-07-05T13:10:00"); // Replace with your date
+}, 600);
+
+const birthDate = new Date("1985-07-05T13:10:00");
 function updateCounter() {
     const now = new Date();
     let diff = now.getTime() - birthDate.getTime();
