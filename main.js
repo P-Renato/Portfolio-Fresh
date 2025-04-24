@@ -20,6 +20,9 @@ setInterval(() => {
     }
 }, 600);
 
+
+const box = document.querySelector(`#${typedKey} .num`);
+
 const birthDate = new Date("1985-07-05T13:10:00");
 function updateCounter() {
     const now = new Date();
