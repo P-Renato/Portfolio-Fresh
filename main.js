@@ -21,33 +21,46 @@ setInterval(() => {
 }, 600);
 
 
-const box = document.querySelector(`#${typedKey} .num`);
-
 const birthDate = new Date("1985-07-05T13:10:00");
+
 function updateCounter() {
-    const now = new Date();
-    let diff = now.getTime() - birthDate.getTime();
-    const seconds = Math.floor(diff / 1000) % 60;
-    const minutes = Math.floor(diff / 1000 / 60) % 60;
-    const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
-    const daysSinceBirth = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const years = Math.floor(daysSinceBirth / 365.25);
-    const months = Math.floor((daysSinceBirth % 365.25) / 30.44);
-    const days = Math.floor((daysSinceBirth % 365.25) % 30.44);
-    const timeUnits = { years, months, days, hours, minutes, seconds };
-    for (let key in timeUnits) {
-        const typedKey = key;
-        const box = document.querySelector(`#${typedKey} .num`);
-        const newValue = timeUnits[typedKey].toString().padStart(2, '0');
-        if (box && box.textContent !== newValue) {
-            box.textContent = newValue;
-            box.classList.add("flip");
-            setTimeout(() => box.classList.remove("flip"), 500);
-        }
+  const now = new Date();
+  let diff = now.getTime() - birthDate.getTime();
+
+  const seconds = Math.floor(diff / 1000) % 60;
+  const minutes = Math.floor(diff / 1000 / 60) % 60;
+  const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
+
+  // Total days since birth
+  const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const years = Math.floor(totalDays / 365.25);
+  const months = Math.floor((totalDays % 365.25) / 30.44);
+  const days = Math.floor((totalDays % 365.25) % 30.44);
+
+  const timeUnits = {
+    years,
+    months,
+    days,
+    hours,
+    minutes,
+    seconds
+  };
+
+  for (let key in timeUnits) {
+    const box = document.querySelector(`#${key} .num`);
+    const newValue = timeUnits[key].toString().padStart(2, '0');
+    
+    if (box && box.textContent !== newValue) {
+      box.textContent = newValue;
+      box.classList.add("flip");
+      setTimeout(() => box.classList.remove("flip"), 500);
     }
+  }
 }
-updateCounter();
-setInterval(updateCounter, 1000);
+
+updateCounter(); // Run once immediately
+setInterval(updateCounter, 1000); // Then every second
+
 // const p: object = document.querySelector(".myParagraph") as HTMLParagraphElement;
 // console.log(p)
 // console.log( typeof p)
